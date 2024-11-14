@@ -5,22 +5,22 @@
 class Gg < Formula
   desc ""
   homepage "https://github.com/bricktopab/homebrew-gg"
-  version "0.0.1"
+  version "0.0.2"
 
   depends_on "git"
 
   on_macos do
     on_intel do
-      url "https://github.com/bricktopab/gg/releases/download/0.0.1/gg_Darwin_x86_64.tar.gz"
-      sha256 "ba7f18acc2b62700cd55050bfb2303c38ba68fadce244a2f11a7b8e0d491662f"
+      url "https://github.com/bricktopab/gg/releases/download/0.0.2/gg_Darwin_x86_64.tar.gz"
+      sha256 "d69d0989b6722f599810730ca55a78d121b7d4c68b143e29f9205284d9d72ecc"
 
       def install
         bin.install "gg"
       end
     end
     on_arm do
-      url "https://github.com/bricktopab/gg/releases/download/0.0.1/gg_Darwin_arm64.tar.gz"
-      sha256 "2b0c37d56a5523308324ca9e27d1644a8ab523d7b998d1e92322d639fec55076"
+      url "https://github.com/bricktopab/gg/releases/download/0.0.2/gg_Darwin_arm64.tar.gz"
+      sha256 "7c5860836b5e1947862c0c1254cce28ecc7f6bb92bffbc62556156cfcb11c260"
 
       def install
         bin.install "gg"
@@ -31,8 +31,8 @@ class Gg < Formula
   on_linux do
     on_intel do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/bricktopab/gg/releases/download/0.0.1/gg_Linux_x86_64.tar.gz"
-        sha256 "756249ef4fc49cca0e8f3034293e341669e94e0777505d84a6c42836ab664658"
+        url "https://github.com/bricktopab/gg/releases/download/0.0.2/gg_Linux_x86_64.tar.gz"
+        sha256 "0e5df766e43672206aed9518f0cc562e3f8ba45d2db75d839c8958ecf8e0afd5"
 
         def install
           bin.install "gg"
@@ -41,8 +41,8 @@ class Gg < Formula
     end
     on_arm do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/bricktopab/gg/releases/download/0.0.1/gg_Linux_arm64.tar.gz"
-        sha256 "ab95e02623e39ff60556f102ab00424247c9bfdcb382db0583ec4b4debc689d3"
+        url "https://github.com/bricktopab/gg/releases/download/0.0.2/gg_Linux_arm64.tar.gz"
+        sha256 "c219e843ce1dcb7a4ff170ceac1f82c3f86a59c7d701d66d545e128b3913a305"
 
         def install
           bin.install "gg"
@@ -52,6 +52,6 @@ class Gg < Formula
   end
 
   def post_install
-    profile.append_lines('unalias gg')
+    system 'test ~/.zshrc && echo "unalias gg" >> ~/.zshrc'
   end
 end
