@@ -52,6 +52,6 @@ class Gg < Formula
   end
 
   def post_install
-    test -f ~/.zshrc && echo 'unalias gg' >> ~/.zshrc
+    profile.append_lines('unalias gg')
   end
 end
