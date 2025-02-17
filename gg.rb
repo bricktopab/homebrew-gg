@@ -5,22 +5,22 @@
 class Gg < Formula
   desc ""
   homepage "https://github.com/bricktopab/homebrew-gg"
-  version "0.0.2"
+  version "0.0.4"
 
   depends_on "git"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/bricktopab/gg/releases/download/0.0.2/gg_Darwin_x86_64.tar.gz"
-      sha256 "abab878915b8ff56cf3d7063f31c5848da15a2183dcfb85b3b5daab23fb3a161"
+      url "https://github.com/bricktopab/gg/releases/download/0.0.4/gg_Darwin_x86_64.tar.gz"
+      sha256 "1ec53e8add970ea08864438f055db56377789ae1f48eb4f182dad172fa26f8c1"
 
       def install
         bin.install "gg"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/bricktopab/gg/releases/download/0.0.2/gg_Darwin_arm64.tar.gz"
-      sha256 "6c43077e6e2a83673af9c535e03f48cedbfc4d44c3605dc4f4c47e5ad27c32dc"
+      url "https://github.com/bricktopab/gg/releases/download/0.0.4/gg_Darwin_arm64.tar.gz"
+      sha256 "efa91f7dbecd321663189d1116828f165ca718188829f63915d9cdc94bf7e9d1"
 
       def install
         bin.install "gg"
@@ -31,8 +31,8 @@ class Gg < Formula
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/bricktopab/gg/releases/download/0.0.2/gg_Linux_x86_64.tar.gz"
-        sha256 "3d59300fcb8aab4ed70710adcb0354d765bb1cb102921c431b9173cd4060571d"
+        url "https://github.com/bricktopab/gg/releases/download/0.0.4/gg_Linux_x86_64.tar.gz"
+        sha256 "7a6f700569390e7125978054285f2ff5a06b07e26fb08230213cc7d63dcfe9ff"
 
         def install
           bin.install "gg"
@@ -41,8 +41,8 @@ class Gg < Formula
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/bricktopab/gg/releases/download/0.0.2/gg_Linux_arm64.tar.gz"
-        sha256 "e6f3264ff80f5ec0da028e518b558afdb8840cc8fea9fefd0ef179cd7856c8e2"
+        url "https://github.com/bricktopab/gg/releases/download/0.0.4/gg_Linux_arm64.tar.gz"
+        sha256 "07b0f2073b1f1e58cfe04ff8036d8803f2f49677bedcf910a4c0ad2ecbeda616"
 
         def install
           bin.install "gg"
@@ -52,6 +52,8 @@ class Gg < Formula
   end
 
   def post_install
-    system 'test ~/.zshrc && echo "unalias gg" >> ~/.zshrc'
+    puts "Greetings from gg!"
+    puts "If you are using zsh, you may need to unset an alias coming from ~/.oh-my-zsh/plugins/git/git.plugin.zsh: "
+    puts "test ~/.zshrc && echo 'unalias gg' >>~/.zshrc"
   end
 end
